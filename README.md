@@ -1,2 +1,26 @@
-# BackupNAS-launcher
 Docker image som starter backupNAS via IPMI ved hjelp av en cron job.
+
+Før docker image bygges må nl.sh kjøres:
+chmod +x nl.sh
+Deretter:
+./nl.sh
+
+før image bygges og kjøres:
+
+ sudo docker build --rm -t backup-server .
+ sudo docker run -d --name Ole-backupNAS-launcher --restart unless-stopped backup-server
+
+ Slette image:
+ sudo docker image rm -f backup-server
+
+ 
+
+
+ Oppsett for backup løsning:
+
+ Timeplan:
+ Hver dag ved midnatt: MAIN NAS tar snapshot av data.
+ Første dag hved mnd 01:00: Docker image starter backup server.
+ 01:15: backup server henter alle nye snapshots fra MAIN NAS.
+ 02:00: Backup server starter shutdown script.
+ ca 02:05: Backup server slår seg av.

@@ -1,0 +1,5 @@
+# hver mnd: 0 1 1 * * /home/Power-up.sh >> /var/log/cron.log 2>&1
+# hver søndag: 
+0 1 * * 0 /home/Power-up.sh >> /var/log/cron.log 2>&1
+# remember to end this file with an empty new line
+

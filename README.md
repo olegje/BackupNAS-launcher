@@ -19,8 +19,8 @@ før image bygges og kjøres:
  Oppsett for backup løsning:
 
  Timeplan:
- Hver dag ved midnatt: MAIN NAS tar snapshot av data.
- Første dag hved mnd 01:00: Docker image starter backup server.
- 01:15: backup server henter alle nye snapshots fra MAIN NAS.
- 02:00: Backup server starter shutdown script.
- ca 02:05: Backup server slår seg av.
+ Hver dag ved midnatt: MAIN NAS tar snapshot av data. intisieres av en snapshot task av MAIN NAS.
+ Første dag hver mnd 01:00: Docker image starter backup server.
+ 01:15: backup server henter alle nye snapshots fra MAIN NAS. Initsieres av backupserver
+ 02:00: Backup server starter shutdown script. Initsieres av backupserver
+ ca 02:05: Backup server slår seg av. Så lenge scriptet lykkes.

@@ -1,11 +1,10 @@
 FROM ubuntu:20.04
-LABEL key="Ole Jonny"
 
 RUN apt-get update && apt-get -y install cron
 RUN apt-get install ipmitool -y
-RUN apt-get install -y tzdata
 ENV TZ=Europe/Oslo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt-get install -y tzdata
 
 # Copy cron file to the cron.d directory and script to home folder
 COPY cronjobs /etc/cron.d/cronjobs

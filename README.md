@@ -13,7 +13,8 @@ før image bygges og kjøres:
  Slette image:
  sudo docker image rm -f backup-server
 
- 
+ Dersom docker ikke vil stoppe container kan docker restartes med:
+ sudo systemctl restart docker.socket docker.service
 
 
  Oppsett for backup løsning:
